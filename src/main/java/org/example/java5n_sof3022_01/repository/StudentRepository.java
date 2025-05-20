@@ -24,4 +24,9 @@ public class StudentRepository {
 
         entityManager.persist(student);
     }
+
+    public void deleteStudentById(long id) {
+
+        entityManager.remove(entityManager.find(Student.class, id));
+    }
 }

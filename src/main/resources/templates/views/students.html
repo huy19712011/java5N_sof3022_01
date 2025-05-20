@@ -18,6 +18,9 @@
         <td th:text="${student.name}"></td>
         <td th:text="${student.email}"></td>
         <td th:text="${student.phone}"></td>
+        <td>
+            <a th:href="@{/students/deleteStudent/{id}(id=${student.id})}">Delete</a>
+        </td>
     </tr>
 </table>
 </body>
