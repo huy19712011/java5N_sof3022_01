@@ -19,6 +19,7 @@
         <td th:text="${student.email}"></td>
         <td th:text="${student.phone}"></td>
         <td>
+            <a th:href="@{/students/showFormForUpdate/{id}(id=${student.id})}">Update</a>
             <a th:href="@{/students/deleteStudent/{id}(id=${student.id})}">Delete</a>
         </td>
     </tr>

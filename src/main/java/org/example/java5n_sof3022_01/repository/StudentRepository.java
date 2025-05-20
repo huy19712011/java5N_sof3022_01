@@ -29,4 +29,14 @@ public class StudentRepository {
 
         entityManager.remove(entityManager.find(Student.class, id));
     }
+
+    public Student getStudentById(long id) {
+
+        return entityManager.find(Student.class, id);
+    }
+
+    public void updateStudent(Student student) {
+
+        entityManager.merge(student);
+    }
 }
