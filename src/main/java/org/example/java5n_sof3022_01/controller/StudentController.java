@@ -1,10 +1,12 @@
 package org.example.java5n_sof3022_01.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.java5n_sof3022_01.entity.Student;
 import org.example.java5n_sof3022_01.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,7 +43,11 @@ public class StudentController {
     }
 
     @PostMapping("/students/saveStudent")
-    public String saveStudent(@ModelAttribute("student") Student student) {
+    public String saveStudent(@Valid @ModelAttribute("student") Student student, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return "views/new_student";
+        }
 
         // save student to database
         studentService.saveStudent(student);
