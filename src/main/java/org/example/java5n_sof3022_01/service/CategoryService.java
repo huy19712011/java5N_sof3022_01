@@ -9,4 +9,9 @@ import org.springframework.stereotype.Service;
 public class CategoryService {
 
     private final CategoryRepository categoryRepository;
+
+    public Object getAllCategories() {
+
+        return categoryRepository.findAll();
+    }
 }
