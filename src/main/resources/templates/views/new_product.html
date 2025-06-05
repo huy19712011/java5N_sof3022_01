@@ -26,7 +26,7 @@
               th:utext="${c.name}"/>
     </select>
 
-    <input type="number" th:field="*{price}"
+    <input type="number" step="0.001" th:field="*{price}"
            placeholder="Product price" class="form-control mb-4 col-4">
     <p th:if="${#fields.hasErrors('price')}" th:class="${#fields.hasErrors('price')} ? error">Invalid Price</p>
     <ul>
